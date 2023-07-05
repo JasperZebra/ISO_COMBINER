@@ -1,24 +1,23 @@
 # ISO_COMBINER
-Combines ISO files on windows machines
 
-How to use "ISO_Combiner", just follow these steps:
+## Purpose
+Combines ISO files on windows machines. Launch the application to select and combine as many iso files as you want.
 
-1. Launch the "ISO_Combiner.exe". Use the latest version for best results.
+## Instructions for running ISO_COMBINER application
+These instructions explain the process to run the ISO_Combiner.exe application.
 
-2. A GUI window titled "ISO Combiner" will open.
+1. Download the ISO_Combiner.exe file from this repo. Use the latest version available for best results.
 
-3. Click the "Browse" button to select the .iso files you want to combine. You can select multiple files by holding down the Ctrl key or Shift key while selecting.
+2. Launch the application on your windows machine. A window should pop up with instructions.
 
-4. The selected file paths will be displayed in the window.
+3. Click the "Browse" button to select at least two .iso files that you want to combine. The selected file paths will be displayed in the window. Use the "Clear" button to remove unwanted paths from the window.
 
-5. Once you have selected at least two .iso files, click the "Combine" button.
+4. Click the "Combine" button to combine the selected files.
 
-6. A file dialog will open asking you to choose the location and name for the combined .iso file. Select the desired location and provide a name for the output file. (e.g. "game",or whatever you want. just don't add ".iso" to the name because the program does it for you.)
+5. A file explorer will open prompting you to choose the location and name for the combined .iso file. Select the desired location and provide a name for the output file. *NOTE: no need to add .iso in the name. The .iso extension should automatically get created.*
 
-7. After selecting the output path and file name, a "Loading..." label will appear to indicate that the combining process is in progress.
+6. After loading, a message box will display a success message confirming that the .iso files have been combined successfully.
 
-8. A message box will display a success message confirming that the ISO files have been combined successfully.
+*NOTE: If the new combined ".iso" has "0 bytes" or is not displaying in your file explorer properly, please refresh or close and reopen your file explorer. If the ".iso" is on your Desktop, right click and select the "refresh" button.*
 
-NOTE: If you see that the new combined ".iso" has "0 bytes" or not the correct amount, please select the "refresh" button in "file explorer" or if the ".iso" is on the desktop, right click and select the "refresh" button and when you hover over the file the correct size should be there.
-
-NOTE: If there are any errors or if you attempt to combine less than two ".iso" files, an error message will be displayed.
+*NOTE: If there are any errors or if you attempt to combine less than two ".iso" files, an error message will be displayed.*
