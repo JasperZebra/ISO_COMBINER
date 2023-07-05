@@ -21,3 +21,6 @@ These instructions explain the process to run the ISO_Combiner.exe application.
 *NOTE: If the new combined ".iso" has "0 bytes" or is not displaying in your file explorer properly, please refresh or close and reopen your file explorer. If the ".iso" is on your Desktop, right click and select the "refresh" button.*
 
 *NOTE: If there are any errors or if you attempt to combine less than two ".iso" files, an error message will be displayed.*
+
+
+### Special thanks to my amazing wife for cleaning up my garbage code
