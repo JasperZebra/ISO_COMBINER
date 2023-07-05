@@ -31,9 +31,6 @@ class ISOCombiner:
         self.listbox = tk.Listbox(self.frame, width=60)
         self.listbox.pack(side=tk.TOP)
 
-        self.listbox.bind("<B1-Motion>", self.drag_motion)
-        self.listbox.bind("<ButtonRelease-1>", self.drop)
-
         self.browse_button = ttk.Button(
             self.frame, text="Browse", command=self.browse_files
         )
