@@ -2,4 +2,5 @@ ISO Combiner Instructions
 
 1. Click 'Browse' and choose at least 2 .iso files to combine.
 2. Click 'Combine' and name the new file. 
-    *NOTE: Do not add the .iso extension to the file name.*
+    *NOTE: Do not add the .iso extension to the file name.
+3. You may need to refresh your file explorer if new file is not showing or if file size is empty.

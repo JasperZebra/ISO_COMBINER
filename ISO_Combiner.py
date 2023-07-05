@@ -12,14 +12,14 @@ class ISOCombiner:
         self.root = root
         self.version = get_version()
         self.root.title(f"ISO Combiner{self.version}")
-        self.root.geometry("600x500")
+        self.root.geometry("600x505")
         self.file_paths = []
 
         self.style = ttk.Style()
         self.style.configure("TButton", font=("Arial", 12))
         self.style.configure("TLabel", font=("Arial", 14))
 
-        self.instructions_box = tk.Text(self.root, height=5)
+        self.instructions_box = tk.Text(self.root, height=6)
         instructions = get_instructions()
         self.instructions_box.insert(tk.END, instructions)
         self.instructions_box.configure(state="disabled", bg=self.root.cget("bg"), bd=0,  font=("Arial", 10))
@@ -46,7 +46,7 @@ class ISOCombiner:
         )
         self.clear_button.pack(side=tk.TOP, pady=12)
 
-        self.loading_label = ttk.Label(self.frame, text="Loading...", font=("Arial", 20))
+        self.loading_label = ttk.Label(self.frame, text="Loading...", font=("Arial", 15))
         self.progress = None
 
     def drag_motion(self, event):
@@ -115,7 +115,7 @@ class ISOCombiner:
             
             # Rename the temporary file to the final output file
             os.rename(temp_file_path, output_path)
-            
+
             tk.messagebox.showinfo(
                 "Success", "ISO files combined successfully!"
             )
