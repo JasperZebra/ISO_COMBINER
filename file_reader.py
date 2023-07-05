@@ -1,9 +1,17 @@
+#######################################
+# Literals & Constants
+#######################################
+VERSION=2.0
+APP_INSTRUCTIONS = """
+ISO Combiner Instructions:
+1. Click 'Browse' and choose at least 2 .iso files to combine.
+2. Click 'Combine' and name the new file. 
+    *NOTE: Do not add the .iso extension to the file name.
+3. You may need to refresh your file explorer if new file is not showing or if file size is empty.
+"""
+
 def read_version_file():
-    VERSION_PREFIX = "version="
-    with open("config.txt", "r") as inf:
-        line = inf.readline().strip()
-        version = "" if not line.startswith(VERSION_PREFIX) else line[len(VERSION_PREFIX):]
-    return version
+    return str(VERSION)
 
 def format_version_for_window(version):
     return f" v{version}"
@@ -14,6 +22,4 @@ def get_version():
     return formatted_version
 
 def get_instructions():
-    with open("application_instructions.txt", "r", encoding="utf-8") as inf:
-        instructions = inf.read()
-    return instructions
+    return APP_INSTRUCTIONS

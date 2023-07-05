@@ -1,3 +1,4 @@
 build/
 .ISO*
 __pycache__/
+dist/

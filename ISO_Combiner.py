@@ -107,6 +107,7 @@ class ISOCombiner:
             tk.messagebox.showinfo(
                 "Success", "ISO files combined successfully!"
             )
+            self.reset_state()
 
     def clear_files(self):
         self.file_paths.clear()
@@ -118,6 +119,12 @@ class ISOCombiner:
             command += f' /b + "{file}"'
         command += f' /b "{temp_file_path}" /b'
         return command
+    
+    def reset_state(self):
+        self.clear_files()
+        self.browse_button.configure(state="normal")
+        self.combine_button.configure(state="normal")
+        self.clear_button.configure(state="normal")
 
 if __name__ == "__main__":
     root = tk.Tk()
