@@ -49,16 +49,6 @@ class ISOCombiner:
         self.loading_label = ttk.Label(self.frame, text="Loading...", font=("Arial", 15))
         self.progress = None
 
-    def drag_motion(self, event):
-        data = self.listbox.get(self.listbox.nearest(event.y))
-        self.listbox.selection_clear(0, tk.END)
-        self.listbox.selection_set(data)
-
-    def drop(self, event):
-        file_path = self.listbox.get(self.listbox.curselection())
-        if file_path not in self.file_paths:
-            self.file_paths.append(file_path)
-            self.listbox.insert(tk.END, file_path)
 
     def browse_files(self):
         file_paths = filedialog.askopenfilenames(
@@ -86,9 +76,7 @@ class ISOCombiner:
                 temp_file_name = ''.join(random.choices(string.ascii_lowercase, k=8))
                 temp_file_path = os.path.join(os.path.dirname(output_path), f"{temp_file_name}.tmp")
 
-                file1 = self.file_paths[0]
-                file2 = self.file_paths[1]
-                command = f'copy /b "{file1}" /b + "{file2}" /b "{temp_file_path}" /b'
+                command = self.build_copy_command(temp_file_path)
                 thread = threading.Thread(target=self.execute_command, args=(command,))
                 thread.start()
 
@@ -124,6 +112,12 @@ class ISOCombiner:
         self.file_paths.clear()
         self.listbox.delete(0, tk.END)
 
+    def build_copy_command(self, temp_file_path):
+        command = f'copy /b "{self.file_paths[0]}"'
+        for file in self.file_paths[1:]:
+            command += f' /b + "{file}"'
+        command += f' /b "{temp_file_path}" /b'
+        return command
 
 if __name__ == "__main__":
     root = tk.Tk()
