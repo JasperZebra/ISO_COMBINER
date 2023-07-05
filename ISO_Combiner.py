@@ -5,19 +5,28 @@ import random
 import string
 import tkinter as tk
 from tkinter import filedialog, ttk
+from file_reader import get_version, get_instructions
 
 class ISOCombiner:
     def __init__(self, root):
         self.root = root
-        self.root.title("ISO Combiner")
+        self.version = get_version()
+        self.root.title(f"ISO Combiner{self.version}")
+        self.root.geometry("600x500")
         self.file_paths = []
 
         self.style = ttk.Style()
         self.style.configure("TButton", font=("Arial", 12))
         self.style.configure("TLabel", font=("Arial", 14))
 
+        self.instructions_box = tk.Text(self.root, height=5)
+        instructions = get_instructions()
+        self.instructions_box.insert(tk.END, instructions)
+        self.instructions_box.configure(state="disabled", bg=self.root.cget("bg"), bd=0,  font=("Arial", 10))
+        self.instructions_box.pack(side=tk.TOP, padx=10, pady=10)
+
         self.frame = ttk.Frame(self.root)
-        self.frame.pack(pady=10)
+        self.frame.pack(side=tk.BOTTOM, fill="y", expand=True)
 
         self.listbox = tk.Listbox(self.frame, width=60)
         self.listbox.pack(side=tk.TOP)
@@ -40,7 +49,7 @@ class ISOCombiner:
         )
         self.clear_button.pack(side=tk.TOP, pady=12)
 
-        self.loading_label = ttk.Label(self.root, text="Loading...")
+        self.loading_label = ttk.Label(self.frame, text="Loading...", font=("Arial", 20))
         self.progress = None
 
     def drag_motion(self, event):
@@ -71,7 +80,7 @@ class ISOCombiner:
                 defaultextension=".iso",
             )
             if output_path:
-                self.loading_label.pack(pady=8)
+                self.loading_label.pack(side=tk.BOTTOM, pady=20)
                 self.browse_button.configure(state=tk.DISABLED)
                 self.combine_button.configure(state=tk.DISABLED)
                 self.clear_button.configure(state=tk.DISABLED)
@@ -121,6 +130,5 @@ class ISOCombiner:
 
 if __name__ == "__main__":
     root = tk.Tk()
-    root.geometry("450x400")
     ISOCombiner(root)
     root.mainloop()
